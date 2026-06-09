@@ -456,6 +456,13 @@
       object-fit: cover;
       background: #0a1116;
     }
+    .process-video-caption {
+      padding: 16px;
+      font-weight: 800;
+      font-size: 22px;
+      line-height: 1.25;
+      color: var(--ink);
+    }
     @media (max-width: 900px) {
       .hero-grid, .grid-2, .compare, .media-grid, .addresses, .solution-grid {
         grid-template-columns: 1fr;
@@ -803,18 +810,18 @@
 
   <section>
     <div class="wrap">
-      <div class="section-title">
-        <h2>Процесс в коротких видео</h2>
-      </div>
       <div class="video-strip">
         <article class="process-video">
           <video src="media/process-components.mp4" poster="media/process-components-poster.jpg" controls playsinline preload="metadata"></video>
+          <div class="process-video-caption">Основные протезы нижних конечностей</div>
         </article>
         <article class="process-video">
           <video src="media/process-rehab-room.mp4" poster="media/process-rehab-room-poster.jpg" controls playsinline preload="metadata"></video>
+          <div class="process-video-caption">Как выглядит протез с которым можно и нырять и плавать любым стилем?</div>
         </article>
         <article class="process-video">
           <video src="media/process-fitting.mp4" poster="media/process-fitting-poster.jpg" controls playsinline preload="metadata"></video>
+          <div class="process-video-caption">С гордостью сообщаем: впервые в России установлена кисть Covvi, и это сделали мы!</div>
         </article>
       </div>
     </div>
