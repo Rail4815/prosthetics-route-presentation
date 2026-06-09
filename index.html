@@ -271,7 +271,7 @@
       gap: 16px;
     }
     .attachment {
-      min-height: 250px;
+      min-height: 600px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -285,20 +285,19 @@
     .attachment:nth-child(3) { background: linear-gradient(135deg, var(--coral), #74382c); }
     .attachment p { color: rgba(255,253,248,.82); }
     .attachment-media {
-      height: 190px;
+      height: clamp(360px, 34vw, 460px);
       margin: 16px 0;
       border-radius: 8px;
       overflow: hidden;
-      background: rgba(255,255,255,.14);
+      background: #fffdf8;
     }
     .attachment-media img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain;
       display: block;
+      padding: 10px;
     }
-    .attachment:nth-child(1) .attachment-media img { object-fit: contain; padding: 12px; background: #fffdf8; }
-    .attachment:nth-child(3) .attachment-media img { object-position: center; }
     .steps {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -551,7 +550,7 @@
             <p>Плотная посадка гильзы. Вакуум держится за счёт уплотнительного кольца.</p>
           </div>
           <div class="attachment-media">
-            <img src="media/vacuum-sealing-liner.webp" alt="Лайнер с уплотнительным кольцом для вакуумного крепления">
+            <img src="media/attachment-vacuum-prosthesis.jpg" alt="Протез с вакуумным креплением">
           </div>
           <strong>Стабильность и точное ощущение протеза.</strong>
         </article>
@@ -561,7 +560,7 @@
             <p>Лайнер входит в замок через штифт. Фиксация понятна на слух и на ощупь.</p>
           </div>
           <div class="attachment-media">
-            <img src="media/pin-lock-pin.jpg" alt="Штифт лайнера для замкового крепления">
+            <img src="media/attachment-pinlock-prosthesis.jpg" alt="Протез с замковым креплением">
           </div>
           <strong>Простая и распространённая схема.</strong>
         </article>
@@ -571,7 +570,7 @@
             <p>Ремешок проходит через гильзу и помогает подтянуть посадку протеза.</p>
           </div>
           <div class="attachment-media">
-            <img src="media/kiss-suspension-official.jpg" alt="Ремешковая система подвески протеза">
+            <img src="media/attachment-kiss-prosthesis.jpg" alt="Протез с KISS-креплением">
           </div>
           <strong>Уверенная подвеска и быстрый контроль посадки.</strong>
         </article>
