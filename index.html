@@ -354,29 +354,19 @@
       min-height: 148px;
     }
     .service strong { display: block; margin-bottom: 8px; }
-    .source-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 16px;
-      margin-top: 18px;
-    }
-    .source-grid.compact {
-      margin-top: 10px;
-    }
-    .source-card {
-      background: rgba(255,253,248,.72);
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      padding: 18px;
-    }
-    .source-card a {
+    .card-link {
       display: inline-block;
-      margin-top: 8px;
+      margin-top: 12px;
       color: var(--blue);
       font-weight: 700;
       text-decoration: none;
     }
-    .source-card a:hover { text-decoration: underline; }
+    .card-link:hover { text-decoration: underline; }
+    .attachment .card-link {
+      color: var(--white);
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
     .solution-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -435,7 +425,7 @@
     footer .wrap { display: grid; gap: 8px; }
 
     @media (max-width: 900px) {
-      .hero-grid, .grid-2, .compare, .media-grid, .addresses, .cta .wrap, .source-grid, .solution-grid {
+      .hero-grid, .grid-2, .compare, .media-grid, .addresses, .cta .wrap, .solution-grid {
         grid-template-columns: 1fr;
       }
       .grid-3, .attachments, .steps, .service-row {
@@ -556,6 +546,7 @@
             <img src="media/vacuum-sealing-liner.webp" alt="Лайнер с уплотнительным кольцом для вакуумного крепления">
           </div>
           <strong>Стабильность и точное ощущение протеза.</strong>
+          <a class="card-link" href="https://www.ottobock.com/ru-ru/product/6Y112-61172" target="_blank" rel="noreferrer">Описание изделия</a>
         </article>
         <article class="attachment">
           <div>
@@ -566,6 +557,7 @@
             <img src="media/pin-lock-pin.jpg" alt="Штифт лайнера для замкового крепления">
           </div>
           <strong>Простая и распространённая схема.</strong>
+          <a class="card-link" href="https://www.ottobock.com/ru-ru/product/6Y70-60800" target="_blank" rel="noreferrer">Описание изделия</a>
         </article>
         <article class="attachment">
           <div>
@@ -576,23 +568,7 @@
             <img src="media/kiss-suspension-official.jpg" alt="Ремешковая система подвески протеза">
           </div>
           <strong>Уверенная подвеска и быстрый контроль посадки.</strong>
-        </article>
-      </div>
-      <div class="source-grid compact">
-        <article class="source-card">
-          <h3>Пример вакуумного решения</h3>
-          <p>Лайнер с уплотнительным кольцом для вакуумной посадки.</p>
-          <a href="https://www.ottobock.com/ru-ru/product/6Y112-61172" target="_blank" rel="noreferrer">Описание изделия</a>
-        </article>
-        <article class="source-card">
-          <h3>Пример замкового решения</h3>
-          <p>Лайнер с дистальным креплением и замком.</p>
-          <a href="https://www.ottobock.com/ru-ru/product/6Y70-60800" target="_blank" rel="noreferrer">Описание изделия</a>
-        </article>
-        <article class="source-card">
-          <h3>Пример KISS-подвески</h3>
-          <p>Ремешковая подвеска: пациент подтягивает посадку при надевании.</p>
-          <a href="https://kiss-suspension.com/" target="_blank" rel="noreferrer">Описание системы</a>
+          <a class="card-link" href="https://kiss-suspension.com/" target="_blank" rel="noreferrer">Описание системы</a>
         </article>
       </div>
     </div>
@@ -616,6 +592,7 @@
           <div>
             <h3>Купальный протез</h3>
             <p>Для душа, бассейна, бани и работы с водой.</p>
+            <a class="card-link" href="https://dynamics-orto.ru/uslugi/protezy-nog/protezy-goleni/protez-goleni-kupalnyj/" target="_blank" rel="noreferrer">Описание варианта</a>
           </div>
         </article>
         <article class="solution-card">
@@ -623,6 +600,7 @@
           <div>
             <h3>Модульный протез голени</h3>
             <p>Повседневное решение под активность, вес, обувь и условия ходьбы.</p>
+            <a class="card-link" href="https://dynamics-orto.ru/uslugi/protezy-nog/protezy-goleni/protez-goleni-modulnyj/" target="_blank" rel="noreferrer">Описание варианта</a>
           </div>
         </article>
         <article class="solution-card">
@@ -630,24 +608,8 @@
           <div>
             <h3>Микропроцессорная стопа</h3>
             <p>Помощь на спусках, подъёмах, неровностях и при длительном стоянии.</p>
+            <a class="card-link" href="https://endolite.ru/product/elan-ic/" target="_blank" rel="noreferrer">Описание изделия</a>
           </div>
-        </article>
-      </div>
-      <div class="source-grid compact">
-        <article class="source-card">
-          <h3>Модульный протез голени</h3>
-          <p>Без микропроцессора, с подбором стопы под активность.</p>
-          <a href="https://dynamics-orto.ru/uslugi/protezy-nog/protezy-goleni/protez-goleni-modulnyj/" target="_blank" rel="noreferrer">Описание варианта</a>
-        </article>
-        <article class="source-card">
-          <h3>Купальный протез голени</h3>
-          <p>Влагозащищённые комплектующие для мокрой среды.</p>
-          <a href="https://dynamics-orto.ru/uslugi/protezy-nog/protezy-goleni/protez-goleni-kupalnyj/" target="_blank" rel="noreferrer">Описание варианта</a>
-        </article>
-        <article class="source-card">
-          <h3>Микропроцессорная стопа</h3>
-          <p>Гидравлическая щиколотка с микропроцессорным управлением.</p>
-          <a href="https://endolite.ru/product/elan-ic/" target="_blank" rel="noreferrer">Описание изделия</a>
         </article>
       </div>
     </div>
