@@ -172,8 +172,8 @@
     }
     .hero .hero-video video {
       width: auto;
-      height: min(76vh, 620px);
-      max-width: min(36vw, 420px);
+      height: min(82vh, 680px);
+      max-width: min(42vw, 500px);
       object-fit: cover;
       border-radius: 8px;
       box-shadow: var(--shadow);
@@ -300,7 +300,6 @@
     .attachment:nth-child(1) .attachment-media img { object-fit: contain; padding: 12px; background: #fffdf8; }
     .attachment:nth-child(3) .attachment-media img { object-position: center; }
     .steps {
-      counter-reset: step;
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 14px;
@@ -313,18 +312,19 @@
       padding: 22px;
       min-height: 164px;
     }
-    .step::before {
-      counter-increment: step;
-      content: counter(step);
-      display: inline-grid;
+    .step-icon {
+      width: 44px;
+      height: 44px;
+      display: grid;
       place-items: center;
-      width: 34px;
-      height: 34px;
       margin-bottom: 14px;
-      border-radius: 50%;
-      background: var(--ink);
-      color: var(--white);
-      font-weight: 800;
+      border-radius: 8px;
+      background: rgba(33,90,125,.12);
+    }
+    .step-icon img {
+      width: 26px;
+      height: 26px;
+      display: block;
     }
     .media-grid {
       display: grid;
@@ -436,42 +436,38 @@
       border-color: rgba(47,143,107,.48);
       box-shadow: 0 16px 42px rgba(47,143,107,.16);
     }
-    .cta {
-      background: var(--ink);
-      color: var(--white);
-    }
-    .cta .wrap {
+    .video-strip {
       display: grid;
-      grid-template-columns: 1fr .82fr;
-      gap: 28px;
-      align-items: center;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
     }
-    .cta p { color: rgba(255,253,248,.78); font-size: 18px; }
-    .cta-box {
-      background: rgba(255,255,255,.08);
-      border: 1px solid rgba(255,255,255,.16);
-      padding: 24px;
-      border-radius: 8px;
-    }
-    .cta-box ul {
-      margin: 0;
-      padding-left: 20px;
-      color: rgba(255,253,248,.86);
-    }
-    footer {
-      padding: 24px clamp(18px, 5vw, 72px);
-      color: var(--muted);
-      font-size: 12px;
+    .process-video {
       background: var(--white);
-      border-top: 1px solid var(--line);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(23,33,39,.06);
     }
-    footer .wrap { display: grid; gap: 8px; }
-
+    .process-video video {
+      display: block;
+      width: 100%;
+      aspect-ratio: 9 / 16;
+      max-height: 560px;
+      object-fit: cover;
+      background: #0a1116;
+    }
+    .process-video div {
+      padding: 16px;
+    }
+    .process-video p {
+      color: var(--muted);
+      margin: 0;
+    }
     @media (max-width: 900px) {
-      .hero-grid, .grid-2, .compare, .media-grid, .addresses, .cta .wrap, .solution-grid {
+      .hero-grid, .grid-2, .compare, .media-grid, .addresses, .solution-grid {
         grid-template-columns: 1fr;
       }
-      .grid-3, .attachments, .steps, .service-row {
+      .grid-3, .attachments, .steps, .service-row, .video-strip {
         grid-template-columns: 1fr;
       }
       .compare-col + .compare-col { border-left: 0; border-top: 1px solid var(--line); }
@@ -722,7 +718,7 @@
       <div class="card">
         <span class="metric">Мастерская</span>
         <h2>Видно, кто работает с изделием</h2>
-        <p>Замеры, гильза, примерка и настройка выполняются индивидуально.</p>
+        <p>Пациент видит мастерскую, материалы и специалиста, который будет вести его изделие.</p>
       </div>
     </div>
   </section>
@@ -735,26 +731,32 @@
       </div>
       <div class="steps">
         <article class="step">
+          <div class="step-icon"><img src="media/icons/message-circle.svg" alt=""></div>
           <h3>Запрос и консультация</h3>
           <p>Ситуация, документы, город, сроки.</p>
         </article>
         <article class="step">
+          <div class="step-icon"><img src="media/icons/list-checks.svg" alt=""></div>
           <h3>Предварительный подбор</h3>
           <p>Тип протеза, комплектующие, площадка.</p>
         </article>
         <article class="step">
+          <div class="step-icon"><img src="media/icons/file-check.svg" alt=""></div>
           <h3>Документы и финансирование</h3>
           <p>ИПРА, электронный сертификат, компенсация.</p>
         </article>
         <article class="step">
+          <div class="step-icon"><img src="media/icons/ruler.svg" alt=""></div>
           <h3>Замеры и изготовление</h3>
           <p>Замеры, гильза, узлы, подгонка.</p>
         </article>
         <article class="step">
+          <div class="step-icon"><img src="media/icons/sliders.svg" alt=""></div>
           <h3>Примерка и настройка</h3>
           <p>Посадка, высота, устойчивость, походка.</p>
         </article>
         <article class="step">
+          <div class="step-icon"><img src="media/icons/wrench.svg" alt=""></div>
           <h3>Обучение и сервис</h3>
           <p>Ходьба, рекомендации, обслуживание.</p>
         </article>
@@ -773,6 +775,38 @@
         <h2>Протез нужно освоить</h2>
         <p>Первые шаги, опора, повороты, темп, бытовые сценарии.</p>
         <p>В маршруте участвуют протезист, врач-ортопед и специалист по реабилитации.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-title">
+        <h2>Процесс в коротких видео</h2>
+        <p>Три фрагмента помогают увидеть комплектующие, зал и рабочие этапы без лишнего текста.</p>
+      </div>
+      <div class="video-strip">
+        <article class="process-video">
+          <video src="media/process-components.mp4" poster="media/process-components-poster.jpg" controls playsinline preload="metadata"></video>
+          <div>
+            <h3>Комплектующие</h3>
+            <p>Как объясняют состав протеза и варианты модулей.</p>
+          </div>
+        </article>
+        <article class="process-video">
+          <video src="media/process-rehab-room.mp4" poster="media/process-rehab-room-poster.jpg" controls playsinline preload="metadata"></video>
+          <div>
+            <h3>Зал реабилитации</h3>
+            <p>Где пациент учится двигаться с новым протезом.</p>
+          </div>
+        </article>
+        <article class="process-video">
+          <video src="media/process-fitting.mp4" poster="media/process-fitting-poster.jpg" controls playsinline preload="metadata"></video>
+          <div>
+            <h3>Примерка и настройка</h3>
+            <p>Рабочий процесс вокруг посадки и деталей изделия.</p>
+          </div>
+        </article>
       </div>
     </div>
   </section>
@@ -808,29 +842,5 @@
     </div>
   </section>
 
-  <section class="cta">
-    <div class="wrap">
-      <div>
-        <h2>Результат — подходящий протез и понятная поддержка</h2>
-        <p>Пациент знает площадку, документы, маршрут, обучение и канал связи после установки.</p>
-      </div>
-      <div class="cta-box">
-        <ul>
-          <li>Консультация и документы.</li>
-          <li>Подбор площадки.</li>
-          <li>Дорога, жильё, сопровождение.</li>
-          <li>Настройка, обучение, сервис.</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <div class="wrap">
-      <div>Презентация маршрута протезирования нижних конечностей.</div>
-      <div>Медицинские изделия и реабилитационные решения имеют противопоказания; перед применением требуется консультация специалиста.</div>
-      <div>Адресные и сервисные сведения по партнёрским площадкам сверены по открытым страницам OrtoDay и протезы.рф на 09.06.2026. Примеры комплектующих и вариантов изделий сверены по открытым страницам Ottobock, KISS Suspension, Dynamics Orto, Endolite и профильным материалам по сложному протезированию.</div>
-    </div>
-  </footer>
 </body>
 </html>
