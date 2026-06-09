@@ -140,6 +140,11 @@
       font-weight: 700;
       font-size: 18px;
     }
+    .hero-point.accent {
+      border-color: rgba(183,215,74,.7);
+      background: rgba(183,215,74,.16);
+      color: #f1ffd0;
+    }
     .video-frame {
       background: #0a1116;
       border: 1px solid rgba(255,255,255,.18);
@@ -156,6 +161,22 @@
     .hero .video-frame video {
       height: min(58vh, 520px);
       object-fit: contain;
+    }
+    .hero-video {
+      justify-self: center;
+      width: max-content;
+      max-width: 100%;
+      background: transparent;
+      border: 0;
+      box-shadow: none;
+    }
+    .hero .hero-video video {
+      width: auto;
+      height: min(76vh, 620px);
+      max-width: min(36vw, 420px);
+      object-fit: cover;
+      border-radius: 8px;
+      box-shadow: var(--shadow);
     }
     .video-frame.vertical video {
       height: min(68vh, 620px);
@@ -353,7 +374,25 @@
       border-radius: 8px;
       min-height: 148px;
     }
-    .service strong { display: block; margin-bottom: 8px; }
+    .service-icon {
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 14px;
+      border-radius: 8px;
+      background: rgba(47,143,107,.12);
+    }
+    .service-icon img {
+      width: 26px;
+      height: 26px;
+      display: block;
+    }
+    .service strong {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 22px;
+    }
     .card-link {
       display: inline-block;
       margin-top: 12px;
@@ -382,7 +421,7 @@
     }
     .solution-card img {
       width: 100%;
-      height: 210px;
+      height: 220px;
       object-fit: cover;
       display: block;
       background: #fffdf8;
@@ -393,6 +432,10 @@
     }
     .solution-card div { padding: 16px; }
     .solution-card p { color: var(--muted); margin-bottom: 0; }
+    .featured {
+      border-color: rgba(47,143,107,.48);
+      box-shadow: 0 16px 42px rgba(47,143,107,.16);
+    }
     .cta {
       background: var(--ink);
       color: var(--white);
@@ -433,6 +476,15 @@
       }
       .compare-col + .compare-col { border-left: 0; border-top: 1px solid var(--line); }
       .hero { min-height: auto; }
+      .hero .hero-video {
+        justify-self: start;
+        width: 100%;
+      }
+      .hero .hero-video video {
+        width: min(100%, 360px);
+        height: auto;
+        max-width: 100%;
+      }
       .nav { display: none; }
       .hero-points { grid-template-columns: 1fr; }
       .image-tile img { min-height: 220px; }
@@ -459,40 +511,13 @@
         <p class="lead">Консультация, документы, протезная, дорога, жильё, обучение ходьбе и сервис — в одном понятном маршруте.</p>
         <div class="hero-points">
           <div class="hero-point">Современные протезы нижних конечностей</div>
-          <div class="hero-point">Партнёрские протезные в Москве, Краснодаре и регионах</div>
+          <div class="hero-point accent">Выездное протезирование и работа на дому</div>
           <div class="hero-point">Реабилитация и обучение пользованию протезом</div>
           <div class="hero-point">Такси, билеты, жильё и сопровождение по необходимости</div>
         </div>
       </div>
-      <div class="video-frame">
-        <video src="media/microprocessor-knee-muted.mp4" poster="media/microprocessor-knee-poster.jpg" controls muted playsinline preload="metadata"></video>
-        <div class="caption">Пример ходьбы на протезе с микропроцессорным коленным модулем.</div>
-      </div>
-    </div>
-  </section>
-
-  <section id="route">
-    <div class="wrap">
-      <div class="section-title">
-        <h2>Не просто изделие, а понятный путь</h2>
-        <p>Пациент сразу видит: что подойдёт, где изготовят, кто обучит и как организована поездка.</p>
-      </div>
-      <div class="grid-3">
-        <article class="card">
-          <span class="metric">01</span>
-          <h3>Подбор решения</h3>
-          <p>Уровень ампутации, активность, кожа, быт, потенциал реабилитации.</p>
-        </article>
-        <article class="card">
-          <span class="metric">02</span>
-          <h3>Организация площадки</h3>
-          <p>Стационарная мастерская, центр с залом реабилитации или выездной формат.</p>
-        </article>
-        <article class="card">
-          <span class="metric">03</span>
-          <h3>Сопровождение до результата</h3>
-          <p>Документы, дорога, проживание, трансфер, обучение и сервис.</p>
-        </article>
+      <div class="video-frame hero-video">
+        <video src="media/hero-walking-loop.mp4" poster="media/microprocessor-knee-poster.jpg" autoplay loop muted playsinline preload="auto"></video>
       </div>
     </div>
   </section>
@@ -575,40 +600,82 @@
   </section>
 
   <section class="band">
-    <div class="wrap media-grid">
-      <div class="image-tile">
-        <img src="media/prosthesis-types.jpg" alt="Виды протезов нижних конечностей">
-      </div>
-      <div class="card">
-        <span class="metric">Виды изделий</span>
-        <h2>Не один протез для всех</h2>
-        <p>Голень или бедро, повседневный или купальный, механика или микропроцессор — решение подбирается под образ жизни.</p>
-      </div>
-    </div>
     <div class="wrap">
+      <div class="section-title">
+        <h2>Ассортимент решений</h2>
+        <p>Подбираем не “тип вообще”, а конкретную конструкцию под уровень ампутации, активность и образ жизни.</p>
+      </div>
       <div class="solution-grid">
-        <article class="solution-card">
-          <img src="media/bathing-below-knee.webp" alt="Купальный протез голени">
-          <div>
-            <h3>Купальный протез</h3>
-            <p>Для душа, бассейна, бани и работы с водой.</p>
-            <a class="card-link" href="https://dynamics-orto.ru/uslugi/protezy-nog/protezy-goleni/protez-goleni-kupalnyj/" target="_blank" rel="noreferrer">Описание варианта</a>
-          </div>
-        </article>
         <article class="solution-card">
           <img src="media/modular-below-knee.webp" alt="Модульный протез голени">
           <div>
-            <h3>Модульный протез голени</h3>
-            <p>Повседневное решение под активность, вес, обувь и условия ходьбы.</p>
+            <h3>Протез голени</h3>
+            <p>Когда коленный сустав сохранён.</p>
             <a class="card-link" href="https://dynamics-orto.ru/uslugi/protezy-nog/protezy-goleni/protez-goleni-modulnyj/" target="_blank" rel="noreferrer">Описание варианта</a>
+          </div>
+        </article>
+        <article class="solution-card">
+          <img src="media/thigh-prosthesis.webp" alt="Протез бедра">
+          <div>
+            <h3>Протез бедра</h3>
+            <p>Когда утрачен коленный сустав.</p>
+            <a class="card-link" href="https://dynamics-orto.ru/uslugi/protezy-nog/protezy-bedra/" target="_blank" rel="noreferrer">Описание варианта</a>
+          </div>
+        </article>
+        <article class="solution-card">
+          <img src="media/bionic-thigh-prosthesis.webp" alt="Бионический протез">
+          <div>
+            <h3>Бионический протез</h3>
+            <p>Колено или стопа с микропроцессором.</p>
+            <a class="card-link" href="https://dynamics-orto.ru/uslugi/protezy-nog/bionicheskij-protez-nogi/" target="_blank" rel="noreferrer">Описание варианта</a>
           </div>
         </article>
         <article class="solution-card">
           <img class="contain" src="media/elanic-foot.jpg" alt="Микропроцессорная стопа">
           <div>
             <h3>Микропроцессорная стопа</h3>
-            <p>Помощь на спусках, подъёмах, неровностях и при длительном стоянии.</p>
+            <p>Поддержка на спусках и неровностях.</p>
             <a class="card-link" href="https://endolite.ru/product/elan-ic/" target="_blank" rel="noreferrer">Описание изделия</a>
+          </div>
+        </article>
+        <article class="solution-card">
+          <img src="media/bathing-below-knee.webp" alt="Купальный протез">
+          <div>
+            <h3>Купальный протез</h3>
+            <p>Для душа, бассейна и влажной среды.</p>
+            <a class="card-link" href="https://dynamics-orto.ru/uslugi/protezy-nog/protezy-goleni/protez-goleni-kupalnyj/" target="_blank" rel="noreferrer">Описание варианта</a>
+          </div>
+        </article>
+        <article class="solution-card">
+          <img src="media/sport-below-knee.webp" alt="Спортивный протез">
+          <div>
+            <h3>Спортивный протез</h3>
+            <p>Бег, спорт и высокий уровень активности.</p>
+            <a class="card-link" href="https://dynamics-orto.ru/uslugi/protezy-nog/protezy-goleni/protez-goleni-sportivnyj/" target="_blank" rel="noreferrer">Описание варианта</a>
+          </div>
+        </article>
+        <article class="solution-card">
+          <img src="media/child-below-knee.webp" alt="Детский протез">
+          <div>
+            <h3>Детский протез</h3>
+            <p>Размер, рост и адаптация ребёнка.</p>
+            <a class="card-link" href="https://dynamics-orto.ru/uslugi/protezy-nog/protezy-goleni/protez-goleni-detskij/" target="_blank" rel="noreferrer">Описание варианта</a>
+          </div>
+        </article>
+        <article class="solution-card">
+          <img class="contain" src="media/atypical-disarticulation.webp" alt="Сложный и атипичный протез">
+          <div>
+            <h3>Сложный случай</h3>
+            <p>Атипичная культя, вычленение, нестандартная гильза.</p>
+            <a class="card-link" href="https://m-lotos.ru/articles/pokazaniya_k_slozhnomu_i_atipichnomu_protezirovaniyu_goleni_i_bedra/" target="_blank" rel="noreferrer">Когда требуется</a>
+          </div>
+        </article>
+        <article class="solution-card">
+          <img class="contain" src="media/cosmetic-cover.jpg" alt="Косметическая облицовка протеза">
+          <div>
+            <h3>Косметическая облицовка</h3>
+            <p>Естественная форма и внешний вид протеза.</p>
+            <a class="card-link" href="https://endolite.ru/product/foam-covers/" target="_blank" rel="noreferrer">Описание изделия</a>
           </div>
         </article>
       </div>
@@ -622,7 +689,7 @@
         <p>Подбираем площадку и сопровождаем пациента до результата.</p>
       </div>
       <div class="addresses">
-        <article class="card">
+        <article class="card featured">
           <span class="metric">Краснодар и выездной формат</span>
           <h3>Площадка с мобильным протезированием</h3>
           <p>Выезд специалистов, обучение на дому, документы и сопровождение.</p>
@@ -660,11 +727,11 @@
     </div>
   </section>
 
-  <section>
+  <section id="route">
     <div class="wrap">
       <div class="section-title">
-        <h2>Как проходит маршрут пациента</h2>
-        <p>Короткий маршрут от первого запроса до сервиса.</p>
+        <h2>Понятный маршрут пациента</h2>
+        <p>От первого запроса до обучения ходьбе и дальнейшего сервиса.</p>
       </div>
       <div class="steps">
         <article class="step">
@@ -718,18 +785,22 @@
       </div>
       <div class="service-row">
         <div class="service">
+          <div class="service-icon"><img src="media/icons/house.svg" alt=""></div>
           <strong>Жильё</strong>
           Проживание рядом с площадкой.
         </div>
         <div class="service">
+          <div class="service-icon"><img src="media/icons/ticket.svg" alt=""></div>
           <strong>Билеты</strong>
           Дорога под даты консультаций и примерок.
         </div>
         <div class="service">
+          <div class="service-icon"><img src="media/icons/taxi.svg" alt=""></div>
           <strong>Такси</strong>
           Вокзал, жильё, протезная, зал.
         </div>
         <div class="service">
+          <div class="service-icon"><img src="media/icons/escort.svg" alt=""></div>
           <strong>Сопровождение</strong>
           Агент на месте по необходимости.
         </div>
@@ -758,7 +829,7 @@
     <div class="wrap">
       <div>Презентация маршрута протезирования нижних конечностей.</div>
       <div>Медицинские изделия и реабилитационные решения имеют противопоказания; перед применением требуется консультация специалиста.</div>
-      <div>Адресные и сервисные сведения по партнёрским площадкам сверены по открытым страницам OrtoDay и протезы.рф на 09.06.2026. Примеры комплектующих и вариантов изделий сверены по открытым страницам Ottobock, KISS Suspension, Dynamics Orto и Endolite.</div>
+      <div>Адресные и сервисные сведения по партнёрским площадкам сверены по открытым страницам OrtoDay и протезы.рф на 09.06.2026. Примеры комплектующих и вариантов изделий сверены по открытым страницам Ottobock, KISS Suspension, Dynamics Orto, Endolite и профильным материалам по сложному протезированию.</div>
     </div>
   </footer>
 </body>
